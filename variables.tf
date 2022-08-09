@@ -82,6 +82,7 @@ variable "wg_server_private_key" {
   type        = string
   default     = null
   description = "WG server private key."
+  sensitive   = true
 }
 
 variable "ami_id" {
