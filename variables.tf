@@ -118,9 +118,3 @@ variable "route53_record_name" {
   default     = null
   description = "Route53 Record name."
 }
-
-variable "route53_geo" {
-  type        = any
-  default     = null
-  description = "Route53 Geolocation config."
-}

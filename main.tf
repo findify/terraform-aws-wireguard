@@ -7,8 +7,6 @@ resource "aws_eip" "wireguard" {
 
 resource "aws_route53_record" "wireguard" {
   count           = var.use_route53 ? 1 : 0
-  allow_overwrite = true
-  set_identifier  = "wireguard-${var.region}"
   zone_id         = var.route53_hosted_zone_id
   name            = var.route53_record_name
   type            = "A"
