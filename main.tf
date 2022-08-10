@@ -14,14 +14,6 @@ resource "aws_route53_record" "wireguard" {
   type            = "A"
   ttl             = "60"
   records         = [aws_eip.wireguard.public_ip]
-
-  dynamic "geolocation_routing_policy" {
-    for_each = try(length(var.route53_geo.policy) > 0 ? var.route53_geo.policy : tomap(false), {})
-
-    content {
-      continent = geolocation_routing_policy.value.continent
-    }
-  }
 }
 
 data "template_file" "wg_client_data_json" {
